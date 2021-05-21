@@ -51,6 +51,42 @@ StringBuilder stringBuilder = new StringBuilder();
 final String stringText = stringBuilder.toString();
 ```
 
+> Code snippet for Object detection
+```bash
+private fun bindPreview(cameraProvider: ProcessCameraProvider){
+        val preview = Preview.Builder().build()
+        val cameraSelector =CameraSelector.Builder()
+            .requireLensFacing(CameraSelector.LENS_FACING_BACK)
+            .build()
+        preview.setSurfaceProvider(binding.previewView.surfaceProvider)
+        val imageAnalysis = ImageAnalysis.Builder()
+            .setTargetResolution(Size(720,1280))
+            .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+            .build()
+        imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this),ImageAnalysis.Analyzer{ imageProxy ->
+            val rotationDegrees = imageProxy.imageInfo.rotationDegrees
+            val image = imageProxy.image
+            if (image != null){
+                val processImage= fromMediaImage(image,rotationDegrees)
+                objectDetector
+                    .process(processImage)
+                    .addOnSuccessListener { objects ->
+                        for (i in objects){
+                            if(binding.parentLayout.childCount >1) binding.parentLayout.removeViewAt(1)
+                            val element = Draw(context =this,
+                                rect = i.boundingBox,
+                                text = i.labels.firstOrNull()?.text ?: "Undefined")
+                            binding.parentLayout.addView(element,1)
+                            fun processTexttoSpeech() {
+                                val objectname = i.labels.firstOrNull()?.text ?: "Undefined"
+                                tts!!.speak(objectname, TextToSpeech.QUEUE_FLUSH, null, "")
+                            }
+                            processTexttoSpeech()
+                        }
+                        imageProxy.close()
+}
+```
+
 >Code snippet from android manifest file.
 ```bash
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
