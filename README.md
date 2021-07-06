@@ -9,7 +9,7 @@
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=whi)
 # CognEye
 
-## Team Members
+## Members
 * [Jaivanti Dhokey](https://github.com/jaivanti)
 * [Atharva Alshi](https://github.com/atharva1608)
 * [Sanika Gadge](https://github.com/Sanikagadge15)
@@ -18,8 +18,6 @@
 * [Chanchal Agrawal](https://github.com/chanchal221b)
 * [Aishwarya Harkare](https://github.com/Aishwarya856)
 * [Purva Anjarlekar](https://github.com/Caddonix)
-
-## Mentor
 * [Shreyansh Chordia](https://github.com/shreyanshchordia)
 
 ## Description
