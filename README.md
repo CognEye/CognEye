@@ -9,7 +9,7 @@
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=whi)
 # CognEye
 
-## Members
+## Contributors
 * [Jaivanti Dhokey](https://github.com/jaivanti)
 * [Atharva Alshi](https://github.com/atharva1608)
 * [Sanika Gadge](https://github.com/Sanikagadge15)
